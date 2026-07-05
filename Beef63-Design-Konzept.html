@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--
+  © 2026 Yavuz Barış Özgün · thebozgun.com · contact@thebozgun.com
+  Design-Konzept / Demo für Beef 63 House. Alle Rechte vorbehalten.
+  Nutzung, Vervielfältigung oder Umsetzung nur mit schriftlicher Genehmigung.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beef 63 House – Wo Feuer zu Geschmack wird</title>
+<meta name="description" content="Beef 63 House in Berlin-Mitte: Authentischer Döner und edle Grillgerichte, traditionell zubereitet, mit Leidenschaft serviert. Oranienburger Str. 8.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#141210;
+    --noir-2:#1c1815;
+    --creme:#f2ead9;
+    --sand:#c7bba4;
+    --gold:#c39a5e;
+    --hairline:rgba(242,234,217,.14);
+    --serif:'Marcellus',Georgia,'Times New Roman',serif;
+    --quote:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost','Segoe UI',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--noir);color:var(--creme);font-family:var(--sans);font-weight:300;line-height:1.75;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  :focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+  /* ---------- Reveal ---------- */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    *{animation:none!important;transition:none!important}
+  }
+
+  /* ---------- Watermark ---------- */
+  .wm{position:fixed;inset:0;z-index:200;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27460%27%20height%3D%27320%27%3E%3Ctext%20x%3D%27230%27%20y%3D%27160%27%20fill%3D%27rgba(242%2C234%2C217%2C0.06)%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2724%27%20letter-spacing%3D%274%27%20text-anchor%3D%27middle%27%20transform%3D%27rotate(-24%20230%20160)%27%3EDEMO%20%C2%B7%20thebozgun.com%3C%2Ftext%3E%3C%2Fsvg%3E");
+    background-size:460px 320px}
+  @media print{.wm{position:absolute}}
+
+  /* ---------- Demo-Hinweis ---------- */
+  .demo-bar{background:#0d0c0a;color:var(--gold);font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-align:center;padding:8px 16px}
+
+  /* ---------- Header ---------- */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(20,18,16,.55);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+  header.site.solid{background:rgba(16,14,12,.94);border-color:var(--hairline)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+  .logo img{height:46px;width:auto}
+  .logo .logo-fallback{display:none;font-family:var(--serif);font-size:24px;letter-spacing:.14em}
+  nav.main{display:flex;gap:40px}
+  nav.main a{font-size:12.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--sand);transition:color .25s}
+  nav.main a:hover{color:var(--gold)}
+  .head-cta{font-size:12.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--creme);border:1px solid var(--gold);padding:13px 26px;transition:background .3s,color .3s}
+  .head-cta:hover{background:var(--gold);color:var(--noir)}
+  @media(max-width:960px){nav.main{display:none}}
+  @media(max-width:560px){.head-cta{display:none}.head-in{justify-content:center}}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:var(--noir-2) url('https://beef63house.de/wp-content/uploads/2025/03/beef-63-house-low-1024x683.webp') center/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,18,16,.55) 0%,rgba(20,18,16,.35) 45%,rgba(20,18,16,.92) 100%)}
+  .hero-in{padding:140px 24px 120px;max-width:900px}
+  .eyebrow{font-size:12px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.4vw,84px);line-height:1.12;letter-spacing:.01em}
+  .hero-rule{width:64px;height:1px;background:var(--gold);margin:38px auto}
+  .hero p{font-family:var(--quote);font-style:italic;font-size:22px;color:var(--sand);max-width:34em;margin:0 auto}
+  .hero-ctas{margin-top:52px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;font-size:12.5px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;padding:17px 40px;border:1px solid var(--gold);transition:background .3s,color .3s}
+  .btn.fill{background:var(--gold);color:var(--noir)}
+  .btn.fill:hover{background:transparent;color:var(--creme)}
+  .btn.line{color:var(--creme)}
+  .btn.line:hover{background:var(--gold);color:var(--noir)}
+  .hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:10.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--sand)}
+  .hero-scroll::after{content:"";display:block;width:1px;height:42px;background:linear-gradient(var(--gold),transparent);margin:12px auto 0}
+
+  /* ---------- Story-Sektionen ---------- */
+  .story{position:relative;padding:150px 0;overflow:hidden}
+  .story + .story{padding-top:40px}
+  .bigword{position:absolute;top:64px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(110px,20vw,260px);line-height:1;color:rgba(242,234,217,.045);letter-spacing:.06em;white-space:nowrap;pointer-events:none;user-select:none}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
+  .story.flip .story-grid > .story-text{order:2}
+  .story-text .eyebrow{margin-bottom:22px}
+  .story-text h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.6vw,50px);line-height:1.2;margin-bottom:26px}
+  .story-text blockquote{font-family:var(--quote);font-style:italic;font-size:21px;line-height:1.6;color:var(--sand);border-left:1px solid var(--gold);padding-left:24px;margin:0 0 26px}
+  .story-text p{color:var(--sand)}
+  .story-link{display:inline-block;margin-top:34px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:6px;transition:letter-spacing .3s}
+  .story-link:hover{letter-spacing:.4em}
+  .collage{position:relative;min-height:560px}
+  .collage .ph{position:absolute;overflow:hidden;background:var(--noir-2)}
+  .collage .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .collage .ph:hover img{transform:scale(1.06)}
+  .ph-a{width:68%;height:520px;top:0;right:0}
+  .ph-b{width:46%;height:340px;bottom:-40px;left:0;border:10px solid var(--noir);z-index:2}
+  .story.flip .ph-a{right:auto;left:0}
+  .story.flip .ph-b{left:auto;right:0}
+  @media(max-width:900px){
+    .story{padding:100px 0}
+    .story-grid{grid-template-columns:1fr;gap:56px}
+    .story.flip .story-grid > .story-text{order:0}
+    .collage{min-height:440px}
+    .ph-a{height:400px;width:78%}
+    .ph-b{height:260px;width:54%;bottom:-24px}
+  }
+
+  /* ---------- Karten-Sektion ---------- */
+  .cards{padding:60px 0 140px}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 70px}
+  .sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.6vw,48px);line-height:1.2;margin-top:14px}
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .card{position:relative;height:480px;overflow:hidden;display:flex;align-items:flex-end}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .card:hover img{transform:scale(1.07)}
+  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,0) 40%,rgba(20,18,16,.88) 100%)}
+  .card-label{position:relative;z-index:2;width:100%;text-align:center;padding:34px 20px}
+  .card-label h3{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:.08em;text-transform:uppercase}
+  .card-label span{display:block;margin-top:8px;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  @media(max-width:900px){.card-grid{grid-template-columns:1fr}.card{height:380px}}
+
+  /* ---------- Menü-Auszug ---------- */
+  .menusec{background:var(--noir-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:130px 0}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 90px;max-width:980px;margin:0 auto}
+  .mi{padding:18px 0;border-bottom:1px solid rgba(242,234,217,.09)}
+  .mi-top{display:flex;align-items:baseline;gap:14px}
+  .mi-name{font-family:var(--serif);font-size:19px;letter-spacing:.02em;white-space:nowrap}
+  .mi-dots{flex:1;border-bottom:1px dotted rgba(199,187,164,.45);transform:translateY(-5px)}
+  .mi-price{font-family:var(--serif);font-size:18px;color:var(--gold);white-space:nowrap}
+  .mi p{font-size:14.5px;color:var(--sand);margin-top:6px}
+  .mi .tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(195,154,94,.5);padding:2px 8px;margin-left:10px;vertical-align:3px;white-space:nowrap}
+  .menu-cta{text-align:center;margin-top:72px}
+  @media(max-width:860px){.menu-grid{grid-template-columns:1fr}}
+
+  /* ---------- Werte ---------- */
+  .values{padding:130px 0 110px;text-align:center}
+  .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px;max-width:1040px;margin:0 auto}
+  .val h3{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+  .val .diamond{display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);margin-bottom:26px}
+  .val p{color:var(--sand);font-size:15.5px}
+  @media(max-width:860px){.val-grid{grid-template-columns:1fr;gap:52px}}
+
+  /* ---------- Video ---------- */
+  .videosec{position:relative;height:72vh;min-height:420px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+  .videosec video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .videosec::after{content:"";position:absolute;inset:0;background:rgba(20,18,16,.45)}
+  .video-cap{position:relative;z-index:2}
+  .video-cap h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.4vw,56px)}
+
+  /* ---------- Kontakt ---------- */
+  .contact{padding:140px 0}
+  .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:center}
+  .contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,54px);line-height:1.18;margin:14px 0 40px}
+  .c-block{padding:26px 0;border-top:1px solid var(--hairline)}
+  .c-block:last-of-type{border-bottom:1px solid var(--hairline)}
+  .c-block h4{font-size:11.5px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .c-block p, .c-block a{font-family:var(--serif);font-size:20px;line-height:1.6}
+  .c-block a:hover{color:var(--gold)}
+  .c-block small{display:block;font-family:var(--sans);font-size:14px;color:var(--sand);margin-top:6px}
+  .contact-img{position:relative;overflow:hidden;background:var(--noir-2)}
+  .contact-img img{width:100%;height:640px;object-fit:cover}
+  .contact-img figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px;text-align:center;background:linear-gradient(transparent,rgba(20,18,16,.9));font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sand)}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:60px}.contact-img img{height:420px}}
+
+  /* ---------- Footer ---------- */
+  footer.site{background:#0e0c0a;border-top:1px solid var(--hairline);padding:90px 0 44px}
+  .foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;text-align:center;margin-bottom:70px}
+  .foot-grid h5{font-size:11.5px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .foot-grid p,.foot-grid a{font-size:15px;color:var(--sand);line-height:2}
+  .foot-grid a:hover{color:var(--creme)}
+  .foot-logo{text-align:center;margin-bottom:36px}
+  .foot-logo img{height:52px;width:auto;margin:0 auto;opacity:.95}
+  .foot-social{display:flex;gap:36px;justify-content:center;margin-bottom:44px}
+  .foot-social a{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sand)}
+  .foot-social a:hover{color:var(--gold)}
+  .foot-legal{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:12.5px;color:#6f665a;border-top:1px solid rgba(242,234,217,.08);padding-top:34px}
+  .foot-legal a:hover{color:var(--sand)}
+  @media(max-width:800px){.foot-grid{grid-template-columns:1fr;gap:40px}}
+</style>
+</head>
+<body>
+
+<div class="wm" aria-hidden="true"></div>
+<div class="demo-bar">Design-Konzept · © 2026 Y. Barış Özgün · thebozgun.com · nicht die offizielle Website</div>
+
+<header class="site" id="siteHead">
+  <div class="wrap head-in">
+    <a class="logo" href="#top" aria-label="Beef 63 House – Startseite">
+      <img src="https://beef63house.de/wp-content/uploads/2025/03/cropped-Adsiz-400-x-100-piksel.png" alt="Beef 63 House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-fallback">BEEF 63 HOUSE</span>
+    </a>
+    <nav class="main" aria-label="Hauptnavigation">
+      <a href="#doener">Döner</a>
+      <a href="#grill">Grill</a>
+      <a href="#speisekarte">Speisekarte</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="head-cta" href="tel:+4930XXXXXXX">Anrufen</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="eyebrow rv">Traditionell zubereitet · Mit Leidenschaft serviert</p>
+    <h1 class="rv">Authentischer Döner<br>&amp; edle Grillgerichte</h1>
+    <div class="hero-rule rv" aria-hidden="true"></div>
+    <p class="rv">„Wo das Feuer der Holzkohle auf jahrzehntealtes Handwerk trifft – mitten in Berlin."</p>
+    <div class="hero-ctas rv">
+      <a class="btn fill" href="#speisekarte">Speisekarte entdecken</a>
+      <a class="btn line" href="#kontakt">Besuchen Sie uns</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Entdecken</div>
+</section>
+
+<section class="story" id="doener">
+  <div class="bigword" aria-hidden="true">DÖNER</div>
+  <div class="wrap story-grid">
+    <div class="story-text rv">
+      <p class="eyebrow">Unser Handwerk</p>
+      <h2>Meisterhaft vom Spieß</h2>
+      <blockquote>„Jeder Schnitt ein Versprechen: zartes Fleisch, perfekt gewürzt, frisch vom drehenden Spieß."</blockquote>
+      <p>Bei Beef 63 House verbinden wir die traditionelle Kunst des Döner-Grillens mit einem modernen, gehobenen Anspruch. Hochwertige Zutaten, hausgemachte Saucen und Rezepte, die über Generationen gereift sind – so wird jeder Bissen zu einem besonderen Moment.</p>
+      <a class="story-link" href="#speisekarte">Zur Döner-Auswahl</a>
+    </div>
+    <div class="collage rv">
+      <figure class="ph ph-a"><img src="https://beef63house.de/wp-content/uploads/2025/03/an-arm-moving-to-cut-the-kebab-meat-2025-02-22-15-39-33-utc-scaled-1-1024x1536.webp" alt="Döner wird frisch vom Spieß geschnitten" loading="lazy"></figure>
+      <figure class="ph ph-b"><img src="https://beef63house.de/wp-content/uploads/2025/03/doner-1200x1200.webp" alt="Frisch belegter Döner" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="story flip" id="grill">
+  <div class="bigword" aria-hidden="true">GRILL</div>
+  <div class="wrap story-grid">
+    <div class="story-text rv">
+      <p class="eyebrow">Über der Glut</p>
+      <h2>Grillkunst mit Charakter</h2>
+      <blockquote>„Vom Adana Kebab bis zur Karışık Izgara – gegrillt über echter Glut, serviert mit Stolz."</blockquote>
+      <p>Unsere Grillgerichte erzählen von der türkischen Ocakbaşı-Tradition: Lammspieße, Hähnchen-Şiş und gemischte Grillplatten, begleitet von gegrillten Tomaten, Paprika und frisch gebackenem Fladenbrot. Genießen Sie den perfekten Grillgeschmack mit jedem Bissen.</p>
+      <a class="story-link" href="#speisekarte">Zu den Grillgerichten</a>
+    </div>
+    <div class="collage rv">
+      <figure class="ph ph-a"><img src="https://beef63house.de/wp-content/uploads/2025/03/adana-kebab-683x1024.webp" alt="Adana Kebab mit Beilagen" loading="lazy"></figure>
+      <figure class="ph ph-b"><img src="https://beef63house.de/wp-content/uploads/2025/03/eaa34597-166b-44e5-83db-e435e0a9d9a8-682x1024.webp" alt="Spezialität des Hauses" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Entdecken Sie unsere Welt</p>
+      <h2>Drei Wege zum Genuss</h2>
+    </div>
+    <div class="card-grid rv">
+      <a class="card" href="#speisekarte">
+        <img src="https://beef63house.de/wp-content/uploads/2025/03/adana-kebab-683x1024.webp" alt="" loading="lazy">
+        <div class="card-label"><h3>Grillgerichte</h3><span>ab 24,99 €</span></div>
+      </a>
+      <a class="card" href="#speisekarte">
+        <img src="https://beef63house.de/wp-content/uploads/2025/03/vegetarian-food-concept-falafel-tasty-falafel-b-2023-11-27-05-31-09-utc-scaled-1-683x1024.webp" alt="" loading="lazy">
+        <div class="card-label"><h3>Vegetarisch</h3><span>ab 7,00 €</span></div>
+      </a>
+      <a class="card" href="#speisekarte">
+        <img src="https://beef63house.de/wp-content/uploads/2025/03/turkish-pide-with-meat-and-vegetables-on-black-woo-2025-02-21-22-56-49-utc-scaled-1-683x1024.webp" alt="" loading="lazy">
+        <div class="card-label"><h3>Pide</h3><span>ab 7,00 €</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="menusec" id="speisekarte">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Auszug aus unserer Karte</p>
+      <h2>Ausgewählte Spezialitäten</h2>
+    </div>
+    <div class="menu-grid rv">
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Steak Döner<span class="tag">Bestseller</span></span><span class="mi-dots"></span><span class="mi-price">9,90 €</span></div>
+        <p>Mit Fleisch, Sauce und Salat im Brot</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Adana Kebab</span><span class="mi-dots"></span><span class="mi-price">24,99 €</span></div>
+        <p>Lammfleisch am Spieß mit gegrillten Tomaten, Zwiebeln und Paprika, dazu Salat und Bulgur oder Reis</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Steak Dürüm Döner</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+        <p>Teigrolle mit Fleisch, Sauce und Salat</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Yoğurtlu Adana Kebab</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+        <p>Auf klein geschnittenem Fladenbrot, mit Joghurt und Tomatensauce übergossen</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Tavuk Şiş<span class="tag">Bestseller</span></span><span class="mi-dots"></span><span class="mi-price">24,99 €</span></div>
+        <p>Hähnchenspieß mit gegrillten Tomaten, Paprika und Zwiebeln, dazu Salatbeilage und Bulgur oder Reis</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Karışık Izgara</span><span class="mi-dots"></span><span class="mi-price">34,99 €</span></div>
+        <p>Gemischte Grillplatte mit Hähnchenspieß, Köfte und Hähnchenflügeln, dazu Grillgemüse, Salat und Bulgur oder Reis</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Falafel im Dürüm</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+        <p>Gegrillte Falafel mit Salat und Sauce</p>
+      </div>
+      <div class="mi">
+        <div class="mi-top"><span class="mi-name">Kaşarlı Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+        <p>Ofenfrische Pide mit Käse</p>
+      </div>
+    </div>
+    <div class="menu-cta rv">
+      <a class="btn line" href="https://beef63house.de/menu/">Komplette Speisekarte ansehen</a>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Wofür wir stehen</p>
+      <h2>Drei Versprechen</h2>
+    </div>
+    <div class="val-grid rv">
+      <div class="val">
+        <span class="diamond" aria-hidden="true"></span>
+        <h3>Handwerk</h3>
+        <p>Jedes Gericht wird mit Liebe und Handwerkskunst zubereitet – nach traditionellen Rezepten, die für den echten Geschmack sorgen.</p>
+      </div>
+      <div class="val">
+        <span class="diamond" aria-hidden="true"></span>
+        <h3>Frische</h3>
+        <p>Saftiges Fleisch, knackiges Gemüse und hausgemachte Saucen – jeden Tag frisch vorbereitet, ohne Kompromisse.</p>
+      </div>
+      <div class="val">
+        <span class="diamond" aria-hidden="true"></span>
+        <h3>Ihr Geschmack</h3>
+        <p>Gestalten Sie Ihren Döner oder Kebab ganz nach Ihrem Geschmack – mit einer Auswahl an frischen Beilagen und Saucen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="videosec" aria-label="Einblick in unser Restaurant">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://beef63house.de/wp-content/uploads/2025/03/doner-1200x1200.webp">
+    <source src="https://beef63house.de/wp-content/uploads/2025/03/BEEF63House.webm" type="video/webm">
+  </video>
+  <div class="video-cap rv">
+    <p class="eyebrow">Beef 63 House erleben</p>
+    <h2>Wo Feuer zu Geschmack wird</h2>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <p class="eyebrow">Besuchen Sie uns</p>
+      <h2>Mitten in Berlin,<br>nah am Hackeschen Markt</h2>
+      <div class="c-block">
+        <h4>Adresse</h4>
+        <p>Oranienburger Str. 8, 10178 Berlin</p>
+        <small>2 Gehminuten von der S-Bahn Hackescher Markt</small>
+      </div>
+      <div class="c-block">
+        <h4>Telefon</h4>
+        <a href="tel:+4930XXXXXXX">030 XXX XX XX</a>
+        <small>Bestellungen zur Abholung gern telefonisch</small>
+      </div>
+      <div class="c-block">
+        <h4>Öffnungszeiten</h4>
+        <p>Mo – Do, Sa – So: 10:00 – 01:00 Uhr<br>Fr: 10:00 – 02:00 Uhr</p>
+      </div>
+    </div>
+    <figure class="contact-img rv">
+      <img src="https://beef63house.de/wp-content/uploads/2025/03/beef-63-house-low-1024x683.webp" alt="Beef 63 House in der Oranienburger Straße" loading="lazy">
+      <figcaption><a href="https://maps.google.com/?q=Oranienburger+Str.+8,+10178+Berlin" target="_blank" rel="noopener">Route planen →</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-logo">
+      <img src="https://beef63house.de/wp-content/uploads/2025/03/Adsiz-400-x-100-piksel.png" alt="Beef 63 House" loading="lazy">
+    </div>
+    <div class="foot-grid">
+      <div>
+        <h5>Kontakt</h5>
+        <p><a href="tel:+4930XXXXXXX">030 XXX XX XX</a><br><a href="mailto:info@beef63house.de">info@beef63house.de</a></p>
+      </div>
+      <div>
+        <h5>Adresse</h5>
+        <p>Oranienburger Str. 8<br>10178 Berlin</p>
+      </div>
+      <div>
+        <h5>Öffnungszeiten</h5>
+        <p>Mo – Do, Sa – So: 10:00 – 01:00<br>Fr: 10:00 – 02:00</p>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 Beef 63 House · Alle Rechte vorbehalten</span>
+      <a href="https://beef63house.de/impressum/">Impressum</a>
+      <a href="#">Datenschutzerklärung</a>
+      <a href="https://thebozgun.com" target="_blank" rel="noopener">Design-Konzept © 2026 thebozgun.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header verdichten beim Scrollen
+  const head = document.getElementById('siteHead');
+  addEventListener('scroll', () => head.classList.toggle('solid', scrollY > 40), {passive:true});
+
+  // Sanftes Einblenden
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.15});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
