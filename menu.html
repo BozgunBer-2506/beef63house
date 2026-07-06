@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+  © 2026 Yavuz Barış Özgün · thebozgun.com · contact@thebozgun.com
+  Design-Konzept / Demo für Beef 63 House. Alle Rechte vorbehalten.
+  Nutzung, Vervielfältigung oder Umsetzung nur mit schriftlicher Genehmigung.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Komplette Speisekarte – Beef 63 House</title>
+<meta name="description" content="Die komplette Speisekarte von Beef 63 House in Berlin-Mitte: Döner, Dürüm, Grillgerichte, Vorspeisen, vegetarische Gerichte, Desserts und Getränke.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#141210;
+    --noir-2:#1c1815;
+    --creme:#f2ead9;
+    --sand:#c7bba4;
+    --gold:#c39a5e;
+    --hairline:rgba(242,234,217,.14);
+    --serif:'Marcellus',Georgia,'Times New Roman',serif;
+    --quote:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost','Segoe UI',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--noir);color:var(--creme);font-family:var(--sans);font-weight:300;line-height:1.75;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  :focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+
+  /* ---------- Watermark ---------- */
+  .wm{position:fixed;inset:0;z-index:200;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27460%27%20height%3D%27320%27%3E%3Ctext%20x%3D%27230%27%20y%3D%27160%27%20fill%3D%27rgba(242%2C234%2C217%2C0.06)%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2724%27%20letter-spacing%3D%274%27%20text-anchor%3D%27middle%27%20transform%3D%27rotate(-24%20230%20160)%27%3EDEMO%20%C2%B7%20thebozgun.com%3C%2Ftext%3E%3C%2Fsvg%3E");
+    background-size:460px 320px}
+  @media print{.wm{position:absolute}}
+
+  /* ---------- Demo-Hinweis ---------- */
+  .demo-bar{background:#0d0c0a;color:var(--gold);font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-align:center;padding:8px 16px}
+
+  /* ---------- Header ---------- */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(20,18,16,.55);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+  header.site.solid{background:rgba(16,14,12,.94);border-color:var(--hairline)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
+  .logo img{height:46px;width:auto}
+  .logo .logo-fallback{display:none;font-family:var(--serif);font-size:24px;letter-spacing:.14em}
+  nav.main{display:flex;gap:40px}
+  nav.main a{font-size:12.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--sand);transition:color .25s}
+  nav.main a:hover{color:var(--gold)}
+  .head-cta{font-size:12.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--creme);border:1px solid var(--gold);padding:13px 26px;transition:background .3s,color .3s}
+  .head-cta:hover{background:var(--gold);color:var(--noir)}
+  @media(max-width:960px){nav.main{display:none}}
+  @media(max-width:560px){.head-cta{display:none}.head-in{justify-content:center}}
+
+  /* ---------- Seiten-Hero ---------- */
+  .page-hero{padding:100px 0 60px;text-align:center}
+  .eyebrow{font-size:12px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+  .page-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,58px)}
+  .page-hero p{font-family:var(--quote);font-style:italic;font-size:20px;color:var(--sand);max-width:38em;margin:22px auto 0}
+
+  /* ---------- Speisekarte ---------- */
+  .full-menu{padding:20px 0 120px}
+  .menu-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:900px;margin:0 auto 56px}
+  .menu-tab{font-family:var(--sans);font-size:12.5px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);background:none;border:1px solid var(--hairline);padding:14px 26px;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+  .menu-tab:hover{color:var(--gold);border-color:var(--gold)}
+  .menu-tab.active{background:var(--gold);color:var(--noir);border-color:var(--gold)}
+  .menu-group{max-width:900px;margin:0 auto;display:none}
+  .menu-group.active{display:block}
+  .menu-group h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.6vw,32px);letter-spacing:.04em;color:var(--gold);border-bottom:1px solid var(--hairline);padding-bottom:18px;margin-bottom:20px}
+  .mi{padding:16px 0;border-bottom:1px solid rgba(242,234,217,.09);display:flex;align-items:baseline;gap:14px}
+  .mi-name{font-family:var(--serif);font-size:18px;letter-spacing:.02em}
+  .mi-dots{flex:1;border-bottom:1px dotted rgba(199,187,164,.45);transform:translateY(-5px)}
+  .mi-price{font-family:var(--serif);font-size:17px;color:var(--gold);white-space:nowrap}
+
+  /* ---------- Footer ---------- */
+  footer.site{padding:80px 0 40px;border-top:1px solid var(--hairline)}
+  .foot-logo img{height:38px;margin:0 auto 50px}
+  .foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+  .foot-grid h5{font-family:var(--serif);font-weight:400;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .foot-grid p{color:var(--sand);font-size:14.5px}
+  .foot-social{display:flex;justify-content:center;gap:28px;margin:56px 0 34px}
+  .foot-social a{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand)}
+  .foot-social a:hover{color:var(--gold)}
+  .foot-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;font-size:11.5px;color:var(--sand);letter-spacing:.04em;border-top:1px solid var(--hairline);padding-top:28px}
+  .foot-legal a:hover{color:var(--gold)}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="wm" aria-hidden="true"></div>
+<div class="demo-bar">Design-Konzept · © 2026 Y. Barış Özgün · thebozgun.com · nicht die offizielle Website</div>
+
+<header class="site" id="siteHead">
+  <div class="wrap head-in">
+    <a class="logo" href="index.html" aria-label="Beef 63 House – Startseite">
+      <img src="https://beef63house.de/wp-content/uploads/2025/03/cropped-Adsiz-400-x-100-piksel.png" alt="Beef 63 House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-fallback">BEEF 63 HOUSE</span>
+    </a>
+    <nav class="main" aria-label="Hauptnavigation">
+      <a href="index.html#doener">Döner</a>
+      <a href="index.html#grill">Grill</a>
+      <a href="menu.html">Speisekarte</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <a class="head-cta" href="tel:+4930XXXXXXX">Anrufen</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Komplette Übersicht</p>
+    <h1>Unsere Speisekarte</h1>
+    <p>Von Döner und Dürüm über Grillgerichte bis zu Vorspeisen, vegetarischen Gerichten, Desserts und Getränken – alles, was Beef 63 House zu bieten hat.</p>
+  </div>
+</section>
+
+<section class="full-menu">
+  <div class="wrap">
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-cat="doener">Döner &amp; Dürüm</button>
+      <button class="menu-tab" data-cat="haupt">Hauptgerichte</button>
+      <button class="menu-tab" data-cat="vorspeisen">Vorspeisen &amp; Beilagen</button>
+      <button class="menu-tab" data-cat="vegetarisch">Vegetarisch</button>
+      <button class="menu-tab" data-cat="desserts">Desserts</button>
+      <button class="menu-tab" data-cat="getraenke">Getränke</button>
+    </div>
+
+    <div class="menu-group active" data-group="doener">
+      <h2>Döner &amp; Dürüm</h2>
+      <div class="mi"><span class="mi-name">Steak Döner</span><span class="mi-dots"></span><span class="mi-price">9,90 €</span></div>
+      <div class="mi"><span class="mi-name">Big Steak Döner</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+      <div class="mi"><span class="mi-name">Steak Käse Döner</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+      <div class="mi"><span class="mi-name">Steak Dürüm Döner</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+      <div class="mi"><span class="mi-name">Steak Döner Box</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+      <div class="mi"><span class="mi-name">Dönerteller</span><span class="mi-dots"></span><span class="mi-price">17,00 €</span></div>
+      <div class="mi"><span class="mi-name">Dönerteller Rind</span><span class="mi-dots"></span><span class="mi-price">16,00 €</span></div>
+      <div class="mi"><span class="mi-name">Dönerteller Chicken</span><span class="mi-dots"></span><span class="mi-price">14,00 €</span></div>
+      <div class="mi"><span class="mi-name">Chicken Gemüse Döner</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Big Chicken Gemüse Döner</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Chicken Gemüse Dürüm</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Chicken Döner Box</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Schnitzel Döner</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Adana Dürüm</span><span class="mi-dots"></span><span class="mi-price">10,00 €</span></div>
+      <div class="mi"><span class="mi-name">Tavuk Şiş Dürüm</span><span class="mi-dots"></span><span class="mi-price">10,00 €</span></div>
+      <div class="mi"><span class="mi-name">Kuzu Şiş Dürüm</span><span class="mi-dots"></span><span class="mi-price">11,00 €</span></div>
+      <div class="mi"><span class="mi-name">Köfte Dürüm</span><span class="mi-dots"></span><span class="mi-price">10,00 €</span></div>
+      <div class="mi"><span class="mi-name">Lahmacun (Classic)</span><span class="mi-dots"></span><span class="mi-price">3,00 €</span></div>
+      <div class="mi"><span class="mi-name">Lahmacun (Salat &amp; Soße)</span><span class="mi-dots"></span><span class="mi-price">6,50 €</span></div>
+      <div class="mi"><span class="mi-name">Lahmacun (Fleisch)</span><span class="mi-dots"></span><span class="mi-price">10,90 €</span></div>
+    </div>
+
+    <div class="menu-group" data-group="haupt">
+      <h2>Hauptgerichte</h2>
+      <div class="mi"><span class="mi-name">İskender Kebab</span><span class="mi-dots"></span><span class="mi-price">22,99 €</span></div>
+      <div class="mi"><span class="mi-name">Adana Kebab</span><span class="mi-dots"></span><span class="mi-price">24,99 €</span></div>
+      <div class="mi"><span class="mi-name">Yoğurtlu Adana Kebab</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Beyti Sarma</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Kuzu Şiş</span><span class="mi-dots"></span><span class="mi-price">25,99 €</span></div>
+      <div class="mi"><span class="mi-name">Yoğurtlu Kuzu Şiş</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Tavuk Şiş</span><span class="mi-dots"></span><span class="mi-price">24,99 €</span></div>
+      <div class="mi"><span class="mi-name">Kuzu Pirzola</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Kuzu File</span><span class="mi-dots"></span><span class="mi-price">27,99 €</span></div>
+      <div class="mi"><span class="mi-name">Kuzu Kaburga</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Külbastı</span><span class="mi-dots"></span><span class="mi-price">26,99 €</span></div>
+      <div class="mi"><span class="mi-name">Tavuk Kanat</span><span class="mi-dots"></span><span class="mi-price">25,99 €</span></div>
+      <div class="mi"><span class="mi-name">Köfte Teller</span><span class="mi-dots"></span><span class="mi-price">24,99 €</span></div>
+      <div class="mi"><span class="mi-name">Karışık Izgara</span><span class="mi-dots"></span><span class="mi-price">34,99 €</span></div>
+      <div class="mi"><span class="mi-name">Sucuklu Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Kaşarlı Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Kuşbaşılı Pide</span><span class="mi-dots"></span><span class="mi-price">9,00 €</span></div>
+      <div class="mi"><span class="mi-name">Yumurtalı Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Kıymalı Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Ispanaklı Pide</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Hamburger</span><span class="mi-dots"></span><span class="mi-price">6,00 €</span></div>
+      <div class="mi"><span class="mi-name">Cheeseburger</span><span class="mi-dots"></span><span class="mi-price">6,50 €</span></div>
+      <div class="mi"><span class="mi-name">Chickenburger</span><span class="mi-dots"></span><span class="mi-price">6,00 €</span></div>
+    </div>
+
+    <div class="menu-group" data-group="vorspeisen">
+      <h2>Vorspeisen &amp; Beilagen</h2>
+      <div class="mi"><span class="mi-name">Tzatziki</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Hummus</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Schack-Schuka</span><span class="mi-dots"></span><span class="mi-price">9,00 €</span></div>
+      <div class="mi"><span class="mi-name">Acılı Ezme</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Haydari</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Gemischter Vorspeisen Teller</span><span class="mi-dots"></span><span class="mi-price">16,00 €</span></div>
+      <div class="mi"><span class="mi-name">Linsensuppe</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Hühnersuppe</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Çoban Salat</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Chicken Salat</span><span class="mi-dots"></span><span class="mi-price">9,00 €</span></div>
+      <div class="mi"><span class="mi-name">Halloumi Salat</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Thunfisch Salat</span><span class="mi-dots"></span><span class="mi-price">9,00 €</span></div>
+      <div class="mi"><span class="mi-name">Pommes</span><span class="mi-dots"></span><span class="mi-price">4,80 €</span></div>
+      <div class="mi"><span class="mi-name">Kartoffelecken</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+      <div class="mi"><span class="mi-name">Brot Kartoffeln</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+      <div class="mi"><span class="mi-name">Süßkartoffeln</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+    </div>
+
+    <div class="menu-group" data-group="vegetarisch">
+      <h2>Vegetarische Gerichte</h2>
+      <div class="mi"><span class="mi-name">Halloumi im Brot</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Halloumi im Dürüm</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Halloumi Teller</span><span class="mi-dots"></span><span class="mi-price">13,00 €</span></div>
+      <div class="mi"><span class="mi-name">Halloumi Box</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Falafel im Brot</span><span class="mi-dots"></span><span class="mi-price">7,00 €</span></div>
+      <div class="mi"><span class="mi-name">Falafel im Dürüm</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+      <div class="mi"><span class="mi-name">Falafel Teller</span><span class="mi-dots"></span><span class="mi-price">13,00 €</span></div>
+      <div class="mi"><span class="mi-name">Falafel Box</span><span class="mi-dots"></span><span class="mi-price">8,00 €</span></div>
+    </div>
+
+    <div class="menu-group" data-group="desserts">
+      <h2>Desserts</h2>
+      <div class="mi"><span class="mi-name">Baklava (3 Stück)</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+      <div class="mi"><span class="mi-name">Sütlaç (Milchreis)</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+      <div class="mi"><span class="mi-name">Havuç Dilimi (Karottenkuchen)</span><span class="mi-dots"></span><span class="mi-price">4,50 €</span></div>
+      <div class="mi"><span class="mi-name">Irmik Tatlısı (Grießkuchen)</span><span class="mi-dots"></span><span class="mi-price">4,00 €</span></div>
+      <div class="mi"><span class="mi-name">Kabak Tatlısı (Kürbisdessert)</span><span class="mi-dots"></span><span class="mi-price">5,00 €</span></div>
+      <div class="mi"><span class="mi-name">Künefe (Käsegebäck in Zuckersirup)</span><span class="mi-dots"></span><span class="mi-price">7,50 €</span></div>
+    </div>
+
+    <div class="menu-group" data-group="getraenke">
+      <h2>Getränke</h2>
+      <div class="mi"><span class="mi-name">Cola</span><span class="mi-dots"></span><span class="mi-price">2,80 €</span></div>
+      <div class="mi"><span class="mi-name">Cola Zero</span><span class="mi-dots"></span><span class="mi-price">2,80 €</span></div>
+      <div class="mi"><span class="mi-name">Fanta</span><span class="mi-dots"></span><span class="mi-price">2,80 €</span></div>
+      <div class="mi"><span class="mi-name">Sprite</span><span class="mi-dots"></span><span class="mi-price">2,80 €</span></div>
+      <div class="mi"><span class="mi-name">Uludağ</span><span class="mi-dots"></span><span class="mi-price">3,00 €</span></div>
+      <div class="mi"><span class="mi-name">Ayran</span><span class="mi-dots"></span><span class="mi-price">2,00 €</span></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-logo">
+      <img src="https://beef63house.de/wp-content/uploads/2025/03/Adsiz-400-x-100-piksel.png" alt="Beef 63 House" loading="lazy">
+    </div>
+    <div class="foot-grid">
+      <div>
+        <h5>Kontakt</h5>
+        <p><a href="tel:+4930XXXXXXX">030 XXX XX XX</a><br><a href="mailto:info@beef63house.de">info@beef63house.de</a></p>
+      </div>
+      <div>
+        <h5>Adresse</h5>
+        <p>Oranienburger Str. 8<br>10178 Berlin</p>
+      </div>
+      <div>
+        <h5>Öffnungszeiten</h5>
+        <p>Mo – Do, Sa – So: 10:00 – 01:00<br>Fr: 10:00 – 02:00</p>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/bestberlindoner/" target="_blank">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 Beef 63 House · Alle Rechte vorbehalten</span>
+      <a href="https://beef63house.de/impressum/">Impressum</a>
+      <a href="#">Datenschutzerklärung</a>
+      <a href="https://thebozgun.com" target="_blank" rel="noopener">Design-Konzept © 2026 thebozgun.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const head = document.getElementById('siteHead');
+  addEventListener('scroll', () => head.classList.toggle('solid', scrollY > 40), {passive:true});
+
+  const tabs = document.querySelectorAll('.menu-tab');
+  const groups = document.querySelectorAll('.menu-group');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    groups.forEach(g => g.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`.menu-group[data-group="${tab.dataset.cat}"]`).classList.add('active');
+  }));
+</script>
+
+</body>
+</html>
